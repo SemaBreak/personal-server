@@ -29,6 +29,7 @@ type counters struct {
 }
 
 type Status struct {
+	Hostname      string     `json:"hostname"`
 	GeneratedAt   int64      `json:"generated_at"`
 	IntervalSecs  int        `json:"interval"`
 	CPUPercent    float64    `json:"cpu_percent"`
@@ -178,7 +179,9 @@ func perSecond(now, before uint64, seconds float64) float64 {
 
 func build(previous, current counters, interval int, diskPath string) Status {
 	seconds := current.at.Sub(previous.at).Seconds()
+	hostname, _ := os.Hostname()
 	status := Status{
+		Hostname:     hostname,
 		GeneratedAt:  current.at.Unix(),
 		IntervalSecs: interval,
 		Cores:        countCores(),
