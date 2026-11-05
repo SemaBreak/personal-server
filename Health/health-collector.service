@@ -1,0 +1,22 @@
+[Unit]
+Description=Health metrics collector for the server landing page
+After=local-fs.target
+
+[Service]
+ExecStart=/usr/local/bin/health-collector
+Restart=always
+RestartSec=5
+DynamicUser=yes
+# Creates /run/health, owned by the service user; the status file is world-readable.
+RuntimeDirectory=health
+RuntimeDirectoryMode=0755
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_UNIX
+MemoryDenyWriteExecute=yes
+
+[Install]
+WantedBy=multi-user.target

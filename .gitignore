@@ -1,1 +1,5 @@
 *.int.md
+*.sqlite
+*.sqlite-journal
+.env
+*.log
