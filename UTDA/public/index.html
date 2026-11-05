@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f4">
+  <title>Daylight — To-do list</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topline">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.64 5.64l1.42 1.42m9.88 9.88 1.42 1.42m0-12.72-1.42 1.42m-9.88 9.88-1.42 1.42"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        </span>
+        Daylight
+      </div>
+      <span class="local-note">A little space to focus</span>
+    </header>
+
+    <section class="heading" aria-labelledby="page-title">
+      <p class="eyebrow" id="today-label"></p>
+      <h1 id="page-title">Make today count.</h1>
+      <p class="subtitle">One thing at a time. You've got this.</p>
+    </section>
+
+    <section class="card" aria-label="To-do list">
+      <form class="entry" id="task-form">
+        <label for="task-input" hidden>Add a task</label>
+        <input id="task-input" name="task" type="text" maxlength="120" placeholder="What needs doing?" autocomplete="off" required>
+        <button class="add-button" type="submit" aria-label="Add task">Add task</button>
+      </form>
+
+      <nav class="filters" aria-label="Filter tasks">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" type="button" data-filter="active" aria-pressed="false">To do</button>
+        <button class="filter" type="button" data-filter="completed" aria-pressed="false">Done</button>
+      </nav>
+
+      <ul class="task-list" id="task-list" aria-live="polite"></ul>
+      <div class="empty" id="empty-state" hidden>
+        <span class="empty-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m5 12 4 4L19 6"/>
+          </svg>
+        </span>
+        <strong id="empty-title"></strong>
+        <p id="empty-copy"></p>
+      </div>
+
+      <footer class="card-footer">
+        <span id="task-count" aria-live="polite"></span>
+        <button class="clear-button" id="clear-completed" type="button">Clear completed</button>
+      </footer>
+    </section>
+    <p class="storage-message" id="storage-message" role="status" aria-live="polite"></p>
+    <p class="footer-note">Your list is saved on your server.</p>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

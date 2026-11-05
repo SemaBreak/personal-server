@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f5">
+  <title>Server services</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #23332b;
+      background: #f5f7f5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      display: grid;
+      min-height: 100vh;
+      margin: 0;
+      place-items: center;
+      padding: 24px;
+    }
+
+    main {
+      width: min(100%, 520px);
+      padding: 36px;
+      border: 1px solid #e0e8e1;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 16px 40px rgb(35 51 43 / 7%);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 5vw, 2.2rem);
+    }
+
+    p { margin: 0 0 24px; color: #68776e; }
+
+    ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+
+    a {
+      display: block;
+      padding: 16px 18px;
+      border: 1px solid #dce7de;
+      border-radius: 10px;
+      color: #285d46;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    a:hover, a:focus-visible {
+      border-color: #8eae98;
+      background: #f4f8f4;
+      text-decoration: underline;
+    }
+    .panel {
+      margin-top: 24px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: #f4f8f4;
+      font-size: 0.9rem;
+    }
+
+    .panel + .panel { margin-top: 12px; }
+    .panel[hidden] { display: none; }
+    .signout { margin-top: 20px; text-align: right; }
+    .signout button { border: 0; background: none; color: #68776e; font: inherit; font-size: 0.85rem; cursor: pointer; text-decoration: underline; }
+    .panel h2 { margin: 0 0 4px; color: #68776e; font-size: 0.75rem; text-transform: uppercase; }
+    #oldest-title, #next-buy-title { font-weight: 650; overflow-wrap: anywhere; }
+    #oldest-title a, #next-buy-title a { display: inline; padding: 0; border: 0; background: none; }
+    #oldest-age, #next-buy-price { color: #68776e; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Server services</h1>
+    <p>Choose a service to open.</p>
+    <ul>
+      <li><a href="/daylight">Daylight</a></li>
+      <li><a href="/np/">NP — Purchase plan</a></li>
+    </ul>
+    <form method="post" action="/login.php" class="signout">
+      <input type="hidden" name="action" value="logout">
+      <button type="submit">Sign out</button>
+    </form>
+    <section id="oldest" class="panel" hidden>
+      <h2>Oldest open task</h2>
+      <div id="oldest-title"></div>
+      <small id="oldest-age"></small>
+    </section>
+    <section id="next-buy" class="panel" hidden>
+      <h2>Next to buy</h2>
+      <div id="next-buy-title"></div>
+      <small id="next-buy-price"></small>
+    </section>
+  </main>
+  <script src="landing.js"></script>
+</body>
+</html>
