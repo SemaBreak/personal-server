@@ -69,9 +69,9 @@
     .signout { margin-top: 20px; text-align: right; }
     .signout button { border: 0; background: none; color: #68776e; font: inherit; font-size: 0.85rem; cursor: pointer; text-decoration: underline; }
     .panel h2 { margin: 0 0 4px; color: #68776e; font-size: 0.75rem; text-transform: uppercase; }
-    #oldest-title, #next-buy-title { font-weight: 650; overflow-wrap: anywhere; }
-    #oldest-title a, #next-buy-title a { display: inline; padding: 0; border: 0; background: none; }
-    #oldest-age, #next-buy-price { color: #68776e; }
+    #oldest-title, #next-buy-title, #latest-title { font-weight: 650; overflow-wrap: anywhere; }
+    #oldest-title a, #next-buy-title a, #latest-title a { display: inline; padding: 0; border: 0; background: none; }
+    #oldest-age, #next-buy-price, #latest-meta { color: #68776e; }
   </style>
 </head>
 <body>
@@ -81,7 +81,8 @@
     <ul>
       <li><a href="/daylight">Daylight</a></li>
       <li><a href="/np/">NP — Purchase plan</a></li>
-    </ul>
+            <li><a href="/rss/">RSS — Feed</a></li>
+          </ul>
     <form method="post" action="/login.php" class="signout">
       <input type="hidden" name="action" value="logout">
       <button type="submit">Sign out</button>
@@ -95,6 +96,11 @@
       <h2>Next to buy</h2>
       <div id="next-buy-title"></div>
       <small id="next-buy-price"></small>
+    </section>
+    <section id="latest" class="panel" hidden>
+      <h2>Latest headline</h2>
+      <div id="latest-title"></div>
+      <small id="latest-meta"></small>
     </section>
   </main>
   <script src="landing.js"></script>

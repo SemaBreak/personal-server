@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f5">
+  <title>RSS — Feed</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <p><a class="back" href="/">&larr; Services</a></p>
+    <h1>Feed</h1>
+    <div class="toolbar">
+      <button type="button" id="refresh">Refresh</button>
+      <span class="updated" id="updated"></span>
+    </div>
+    <p class="message" id="message" role="status" aria-live="polite"></p>
+
+    <ul class="entries" id="entries"></ul>
+    <p class="empty" id="empty-state" hidden>No items yet. Add a feed below, then press Refresh.</p>
+    <button type="button" class="more" id="more" hidden>Load more</button>
+
+    <section class="feeds">
+      <h2>Feeds</h2>
+      <form class="entry" id="feed-form">
+        <label>Feed URL <input id="feed-url" type="url" maxlength="2048" placeholder="https://example.com/feed.xml" required autocomplete="off"></label>
+        <button type="submit">Add feed</button>
+      </form>
+      <ul class="feed-list" id="feed-list"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

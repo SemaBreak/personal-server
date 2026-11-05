@@ -41,3 +41,15 @@ loadPanel('/np/api.php?position=1', 'next-buy', (item) => {
   }
   document.getElementById('next-buy-price').textContent = item.price.toFixed(2);
 });
+
+loadPanel('/rss/api.php?limit=1', 'latest', (page) => {
+  const item = page.items[0];
+  if (!item || !isHttpUrl(item.link)) throw new Error('No headline.');
+  const anchor = document.createElement('a');
+  anchor.href = item.link;
+  anchor.target = '_blank';
+  anchor.rel = 'noopener noreferrer';
+  anchor.textContent = item.title;
+  document.getElementById('latest-title').replaceChildren(anchor);
+  document.getElementById('latest-meta').textContent = item.feed_title;
+});
